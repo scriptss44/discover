@@ -53,8 +53,8 @@ export default function BankDashboardMock() {
   const usagePct = useMemo(() => Math.min(100, (currentBalance / creditLimit) * 100), [currentBalance]);
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-neutral-100 p-4">
-      <div className="relative mx-auto w-[380px] max-w-full">
+    <div className="min-h-screen w-full bg-neutral-100">
+      <div className="relative w-full max-w-md mx-auto">
         <div className="relative rounded-[40px] border border-zinc-300 bg-white shadow-2xl overflow-hidden">
           <header className="bg-[#1f2130] pt-10 pb-6 text-white">
             <div className="px-6">
