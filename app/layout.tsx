@@ -1,9 +1,10 @@
-export const metadata = {
+import "./globals.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Discover Bank UI",
   description: "Mock banking dashboard",
 };
-
-import "./globals.css";
 
 export default function RootLayout({
   children,
