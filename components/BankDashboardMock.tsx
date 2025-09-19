@@ -13,6 +13,7 @@ import { useMemo, useState } from "react";
 
 const ActivityRow = ({ title, date, amount, positive = false }) => {
   return (
+    <div className="min-h-screen w-full flex items-center justify-center bg-neutral-100 p-4" style={{backgroundColor: 'red'}}>
     <button
       className="w-full flex items-start gap-3 py-3.5 px-3 hover:bg-zinc-50 rounded-xl transition"
       aria-label={`View details for ${title}`}
