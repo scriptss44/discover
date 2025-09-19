@@ -2,15 +2,6 @@
 
 import { useMemo, useState } from "react";
 
-/*
-  Discover-style mobile banking UI with simple state logic:
-  - Starts WITHOUT Bailout Relief applied
-  - Current Balance begins at $21,760.87
-  - Available Credit = Credit Limit − Current Balance
-  - Clicking the banner "Activate Debt Relief Program" applies a +$21,500.00 credit
-    and recalculates Current Balance and Available Credit.
-*/
-
 const ActivityRow = ({ title, date, amount, positive = false }) => {
   return (
     <button
@@ -41,15 +32,12 @@ const ActivityRow = ({ title, date, amount, positive = false }) => {
 };
 
 export default function BankDashboardMock() {
-  // --- Config ---
   const creditLimit = 22000;
   const baseBalance = 21760.87;
   const reliefAmount = 21500.0;
 
-  // --- UI State ---
   const [reliefActive, setReliefActive] = useState(false);
 
-  // --- Helpers ---
   const formatMoney = (value: number) =>
     value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -60,16 +48,14 @@ export default function BankDashboardMock() {
     return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   };
 
-  // --- Derived values ---
   const currentBalance = reliefActive ? Math.max(0, baseBalance - reliefAmount) : baseBalance;
   const availableCredit = Math.max(0, creditLimit - currentBalance);
   const usagePct = useMemo(() => Math.min(100, (currentBalance / creditLimit) * 100), [currentBalance]);
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-neutral-100 p-4">
+    <div className="min-h-screen w-full flex items-center justify-center bg-neutral-100 p-4" style={{backgroundColor: 'red'}}>
       <div className="relative mx-auto w-[380px] max-w-full">
         <div className="relative rounded-[40px] border border-zinc-300 bg-white shadow-2xl overflow-hidden">
-          {/* Header */}
           <header className="bg-[#1f2130] pt-10 pb-6 text-white">
             <div className="px-6">
               <div className="flex items-center justify-between">
@@ -113,7 +99,6 @@ export default function BankDashboardMock() {
             </div>
           </header>
 
-          {/* Body */}
           <main className="-mt-6 rounded-t-3xl bg-white px-4 pb-8">
             {!reliefActive && (
               <section className="mx-2 mt-4 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-amber-900">
