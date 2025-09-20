@@ -30,7 +30,7 @@ const ListRow = ({ title, right = null, sub = null }) => (
   </button>
 );
 
-const ActivityRow = ({ title, date, amount, positive = false, onClick }) => (
+const ActivityRow = ({ title, date, amount, positive = false, onClick = null }) => (
   <button
     onClick={onClick}
     className="w-full flex items-start gap-3 py-3.5 px-3 hover:bg-zinc-50 rounded-xl transition text-left"
@@ -183,8 +183,8 @@ export default function BankDashboardMock() {
                   onClick={() => setTxnDetail("bailout")}
                 />
               )}
-              <ActivityRow title="LD PHO CHICAGO IL" date={`${formatOffset(0)} · Posted`} amount={formatMoney(33.87)} />
-              <ActivityRow title="HULU" date={`${formatOffset(0)} · Posted`} amount={formatMoney(13.89)} />
+              <ActivityRow title="LD PHO CHICAGO IL" date={`${formatOffset(0)} · Posted`} amount={formatMoney(33.87)} onClick={() => {}} />
+              <ActivityRow title="HULU" date={`${formatOffset(0)} · Posted`} amount={formatMoney(13.89)} onClick={() => {}} />
             </div>
             <div className="px-4 pb-4 pt-2">
               <button className="w-full rounded-xl bg-white px-4 py-2 text-center text-sm font-medium text-indigo-700 ring-1 ring-indigo-600/20 hover:bg-indigo-50">
