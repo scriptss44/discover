@@ -30,13 +30,14 @@ const ListRow = ({ title, right = null, sub = null }) => (
   </button>
 );
 
-const ActivityRow = ({ title, date, amount, positive = false }) => (
+const ActivityRow = ({ title, date, amount, positive = false, onClick }) => (
   <button
-    className="w-full flex items-start gap-3 py-3.5 px-3 hover:bg-zinc-50 rounded-xl transition"
+    onClick={onClick}
+    className="w-full flex items-start gap-3 py-3.5 px-3 hover:bg-zinc-50 rounded-xl transition text-left"
     aria-label={`View details for ${title}`}
   >
     <div className={`mt-1 h-2.5 w-2.5 rounded-full ${positive ? "bg-emerald-500" : "bg-zinc-300"}`} />
-    <div className="flex-1 text-left">
+    <div className="flex-1">
       <div className="font-semibold text-zinc-800 truncate max-w-[210px] sm:max-w-none">{title}</div>
       <div className="text-xs text-zinc-500">{date}</div>
     </div>
@@ -51,7 +52,7 @@ export default function BankDashboardMock() {
   // --- Core numbers ---
   const creditLimit = 22000;
   const baseBalance = 21760.87; // starts without relief
-  const reliefAmount = 21500.0;  // applied after activation
+  const reliefAmount = 21500.0; // applied after activation
 
   // Payments details (before relief)
   const lastStatementBalance = 20845.92;
@@ -61,13 +62,14 @@ export default function BankDashboardMock() {
   // --- UI state ---
   const [reliefActive, setReliefActive] = useState(false);
   const [activeTab, setActiveTab] = useState("activity"); // activity | payments | rewards | services | more
+  const [txnDetail, setTxnDetail] = useState(null as null | "bailout");
 
   // --- helpers ---
-  const formatMoney = (value) =>
+  const formatMoney = (value: number) =>
     value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   const today = new Date();
-  const formatOffset = (days) => {
+  const formatOffset = (days: number) => {
     const d = new Date(today);
     d.setDate(today.getDate() - days);
     return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
@@ -152,7 +154,6 @@ export default function BankDashboardMock() {
   const ScreenActivity = () => (
     <>
       <HeaderActivity />
-      {/* pull the white card stack slightly over the navy header */}
       <main className="relative -mt-14 px-4 pb-20 flex-1">
         <div className="relative z-20 mx-auto w-[90%] -mt-6">
           {!reliefActive && (
@@ -179,10 +180,11 @@ export default function BankDashboardMock() {
                   date={`${formatOffset(0)} · Payment`}
                   amount={formatMoney(reliefAmount)}
                   positive
+                  onClick={() => setTxnDetail("bailout")}
                 />
               )}
-              <ActivityRow title="LD PHO CHICAGO IL" date={`${formatOffset(1)} · Posted`} amount={formatMoney(33.87)} />
-              <ActivityRow title="NRDC 212-727-2700 NY" date={`${formatOffset(2)} · Posted`} amount={formatMoney(20.0)} />
+              <ActivityRow title="LD PHO CHICAGO IL" date={`${formatOffset(0)} · Posted`} amount={formatMoney(33.87)} />
+              <ActivityRow title="HULU" date={`${formatOffset(0)} · Posted`} amount={formatMoney(13.89)} />
             </div>
             <div className="px-4 pb-4 pt-2">
               <button className="w-full rounded-xl bg-white px-4 py-2 text-center text-sm font-medium text-indigo-700 ring-1 ring-indigo-600/20 hover:bg-indigo-50">
