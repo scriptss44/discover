@@ -370,16 +370,3 @@ export default function BankDashboardMock() {
     </div>
   );
 }
-
-/* --- math helpers for quick checks (manual) --- */
-export function _calc({ reliefActive }) {
-  const creditLimit = 22000;
-  const baseBalance = 21760.87;
-  const reliefAmount = 21500.0;
-  const lastStatementBalance = 20845.92;
-  const minDueBeforeRelief = 652.0;
-  const currentBalance = reliefActive ? Math.max(0, baseBalance - reliefAmount) : baseBalance; // 260.87 when true
-  const availableCredit = Math.max(0, creditLimit - currentBalance);
-  const minimumPaymentDue = reliefActive ? 0 : minDueBeforeRelief;
-  return { currentBalance, availableCredit, minimumPaymentDue, lastStatementBalance };
-}
