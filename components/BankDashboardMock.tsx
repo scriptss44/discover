@@ -17,7 +17,7 @@ const Chevron = ({ className = "h-4 w-4" }) => (
   </svg>
 );
 
-const ListRow = ({ title, right, sub }) => (
+const ListRow = ({ title, right = null, sub = null }) => (
   <button className="w-full flex items-center justify-between px-4 py-4 hover:bg-zinc-50">
     <div>
       <div className="text-zinc-900 font-medium text-[15px]">{title}</div>
