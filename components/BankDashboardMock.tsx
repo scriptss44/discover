@@ -304,8 +304,8 @@ export default function BankDashboardMock() {
     <div className="min-h-screen w-full bg-white">
       {/* Full screen mobile layout with Safari fixes */}
       <div className="relative w-full min-h-screen flex flex-col bg-white overflow-hidden" style={{minHeight: '100vh'}}>
-        {/* Scrollable content */}
-        <div className="flex-1 flex flex-col overflow-y-auto">
+        {/* Scrollable content with bottom padding for fixed nav */}
+        <div className="flex-1 flex flex-col overflow-y-auto pb-16">
           {activeTab === "activity" && <ScreenActivity />}
           {activeTab === "payments" && <ScreenPayments />}
           {activeTab === "rewards" && <Placeholder title="Rewards" />}
@@ -313,8 +313,8 @@ export default function BankDashboardMock() {
           {activeTab === "more" && <Placeholder title="More" />}
         </div>
 
-        {/* Bottom Nav - Fixed position for Safari */}
-        <nav className="h-16 bg-[#1f2130] text-white flex justify-around items-center flex-shrink-0 relative z-50" style={{position: 'sticky', bottom: 0}}>
+        {/* Bottom Nav - Fixed at bottom always visible */}
+        <nav className="fixed bottom-0 left-0 right-0 h-16 bg-[#1f2130] text-white flex justify-around items-center z-50">
           {/* Activity */}
           <button onClick={() => setActiveTab("activity")} className="flex flex-col items-center text-xs" aria-label="Activity">
             <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke={activeTab === 'activity' ? '#f59e0b' : '#ffffff'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
