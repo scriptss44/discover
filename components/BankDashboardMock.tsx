@@ -301,9 +301,9 @@ export default function BankDashboardMock() {
 
   /* ===================== SHELL + NAV ===================== */
   return (
-    <div className="min-h-screen w-full flex justify-center bg-neutral-100">
-      {/* Phone frame */}
-      <div className="relative w-full max-w-[420px] h-screen flex flex-col bg-white sm:rounded-[2.5rem] sm:shadow-xl overflow-hidden">
+    <div className="min-h-screen w-full bg-white">
+      {/* Full screen mobile layout */}
+      <div className="relative w-full h-screen flex flex-col bg-white overflow-hidden">
         {/* Scrollable content */}
         <div className="flex-1 flex flex-col overflow-y-auto">
           {activeTab === "activity" && <ScreenActivity />}
