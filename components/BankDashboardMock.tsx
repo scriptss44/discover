@@ -282,7 +282,78 @@ export default function BankDashboardMock() {
     </>
   );
 
-  const Placeholder = ({ title }) => (
+  const ScreenTransactionDetail = () => (
+    <>
+      <header className="relative bg-[#1f2130] pt-10 pb-6 text-white">
+        <div className="px-6">
+          <div className="flex items-center justify-between">
+            <button onClick={() => setTxnDetail(null)} className="text-white/90 hover:text-white">
+              <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <div className="flex-1 text-center text-xl font-semibold">Transaction Details</div>
+            <button className="text-sm text-white/90 hover:text-white">Log Out</button>
+          </div>
+          <div className="mt-2 h-0.5 w-full bg-orange-600/80" />
+        </div>
+      </header>
+      
+      <main className="px-4 py-6 bg-gray-100">
+        <div className="mx-auto w-[95%] rounded-2xl bg-white shadow-sm overflow-hidden">
+          {/* Transaction Header */}
+          <div className="bg-[#1f2130] text-white p-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold">BAILOUT RELIEF</h2>
+              <span className="text-2xl font-bold">${formatMoney(reliefAmount)}</span>
+            </div>
+          </div>
+
+          {/* Merchant Contact Information */}
+          <div className="bg-gray-500 text-white px-6 py-3">
+            <h3 className="font-medium">Merchant Contact Information</h3>
+          </div>
+          
+          <div className="px-6 py-4 border-b border-gray-200">
+            <div className="flex items-start gap-3 mb-3">
+              <svg className="h-5 w-5 text-gray-600 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span className="text-gray-900 font-medium">DISCOVER FINANCIAL SERVICES</span>
+            </div>
+          </div>
+
+          {/* Additional Information */}
+          <div className="bg-gray-500 text-white px-6 py-3">
+            <h3 className="font-medium">Additional Information</h3>
+          </div>
+
+          <div className="px-6 py-4 space-y-4">
+            <div className="flex justify-between items-center py-3">
+              <span className="text-gray-900 font-medium">Transaction Date</span>
+              <span className="text-gray-900 font-medium">{formatOffset(0)}</span>
+            </div>
+            
+            <div className="flex justify-between items-center py-3">
+              <span className="text-gray-900 font-medium">Posted Date</span>
+              <span className="text-gray-900 font-medium">{formatOffset(0)}</span>
+            </div>
+            
+            <div className="flex justify-between items-center py-3">
+              <span className="text-gray-900 font-medium">Purchase Method</span>
+              <span className="text-gray-900 font-medium">CREDIT ADJUSTMENT</span>
+            </div>
+            
+            <div className="flex justify-between items-start py-3">
+              <span className="text-gray-900 font-medium">Category</span>
+              <span className="text-gray-900 font-medium text-right">DEBT RELIEF AND<br/>FINANCIAL ASSISTANCE</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </>
+  );
     <>
       <header className="relative bg-[#1f2130] pt-10 pb-6 text-white">
         <div className="px-6">
@@ -308,11 +379,12 @@ export default function BankDashboardMock() {
       <div className="relative w-full min-h-screen flex flex-col bg-white overflow-hidden" style={{minHeight: '100vh'}}>
         {/* Scrollable content with bottom padding for fixed nav */}
         <div className="flex-1 flex flex-col overflow-y-auto pb-16">
-          {activeTab === "activity" && <ScreenActivity />}
-          {activeTab === "payments" && <ScreenPayments />}
-          {activeTab === "rewards" && <Placeholder title="Rewards" />}
-          {activeTab === "services" && <Placeholder title="Services" />}
-          {activeTab === "more" && <Placeholder title="More" />}
+          {txnDetail === "bailout" && <ScreenTransactionDetail />}
+          {!txnDetail && activeTab === "activity" && <ScreenActivity />}
+          {!txnDetail && activeTab === "payments" && <ScreenPayments />}
+          {!txnDetail && activeTab === "rewards" && <Placeholder title="Rewards" />}
+          {!txnDetail && activeTab === "services" && <Placeholder title="Services" />}
+          {!txnDetail && activeTab === "more" && <Placeholder title="More" />}
         </div>
 
         {/* Bottom Nav - Fixed at bottom always visible */}
