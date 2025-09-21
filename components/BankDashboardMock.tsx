@@ -86,6 +86,13 @@ export default function BankDashboardMock() {
     <header className="relative bg-[#1f2130] pt-10 pb-20 text-white">
       <div className="px-6">
         <div className="flex items-center justify-between">
+          <div className="relative">
+            <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <div className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">12</div>
+          </div>
           <div className="flex-1 flex justify-center">
             <span className="text-3xl font-bold tracking-wide flex items-center">
               <span className="text-white">DISC</span>
@@ -93,10 +100,10 @@ export default function BankDashboardMock() {
               <span className="text-white">VER</span>
             </span>
           </div>
-          <button className="absolute right-6 text-sm text-white/90 hover:text-white">Log Out</button>
+          <button className="text-sm text-white/90 hover:text-white">Log Out</button>
         </div>
 
-        <div className="mt-2 h-0.5 w-full bg-orange-600/80" />
+        <div className="absolute left-0 right-0 mt-2 h-0.5 w-full bg-orange-600/80" />
 
         <div className="mt-6 text-center">
           <div className="flex items-center justify-center gap-2 text-sm text-white/90">
@@ -131,10 +138,17 @@ export default function BankDashboardMock() {
     <header className="relative bg-[#1f2130] pt-10 pb-10 text-white">
       <div className="px-6">
         <div className="flex items-center justify-between">
+          <div className="relative">
+            <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <div className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">12</div>
+          </div>
           <div className="flex-1 text-center text-2xl font-semibold">Payments</div>
-          <button className="absolute right-6 text-sm text-white/90 hover:text-white">Log Out</button>
+          <button className="text-sm text-white/90 hover:text-white">Log Out</button>
         </div>
-        <div className="mt-2 h-0.5 w-full bg-orange-600/80" />
+        <div className="absolute left-0 right-0 mt-2 h-0.5 w-full bg-orange-600/80" />
 
         <div className="mt-6 text-center">
           <div className="text-white/80">Minimum Payment Due</div>
