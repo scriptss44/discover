@@ -347,7 +347,7 @@ export default function BankDashboardMock() {
             
             <div className="flex justify-between items-start py-3">
               <span className="text-gray-900 font-medium">Category</span>
-              <div className="text-gray-900 font-medium text-right">
+              <div className="text-gray-900 font-medium text-right leading-tight">
                 <div>DEBT RELIEF AND</div>
                 <div>FINANCIAL ASSISTANCE</div>
               </div>
