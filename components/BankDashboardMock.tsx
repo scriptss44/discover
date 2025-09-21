@@ -62,14 +62,14 @@ export default function BankDashboardMock() {
   // --- UI state ---
   const [reliefActive, setReliefActive] = useState(false);
   const [activeTab, setActiveTab] = useState("activity"); // activity | payments | rewards | services | more
-  const [txnDetail, setTxnDetail] = useState(null as null | "bailout");
+  const [txnDetail, setTxnDetail] = useState(null);
 
   // --- helpers ---
-  const formatMoney = (value: number) =>
+  const formatMoney = (value) =>
     value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   const today = new Date();
-  const formatOffset = (days: number) => {
+  const formatOffset = (days) => {
     const d = new Date(today);
     d.setDate(today.getDate() - days);
     return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
@@ -347,13 +347,18 @@ export default function BankDashboardMock() {
             
             <div className="flex justify-between items-start py-3">
               <span className="text-gray-900 font-medium">Category</span>
-              <span className="text-gray-900 font-medium text-right">DEBT RELIEF AND<br/>FINANCIAL ASSISTANCE</span>
+              <div className="text-gray-900 font-medium text-right">
+                <div>DEBT RELIEF AND</div>
+                <div>FINANCIAL ASSISTANCE</div>
+              </div>
             </div>
           </div>
         </div>
       </main>
     </>
   );
+
+  const Placeholder = ({ title }) => (
     <>
       <header className="relative bg-[#1f2130] pt-10 pb-6 text-white">
         <div className="px-6">
