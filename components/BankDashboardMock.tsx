@@ -299,55 +299,55 @@ export default function BankDashboardMock() {
         </div>
       </header>
       
-      <main className="px-4 py-6 bg-gray-100">
-        <div className="mx-auto w-[95%] rounded-2xl bg-white shadow-sm overflow-hidden">
+      <main className="px-2 py-4 bg-gray-100">
+        <div className="mx-auto w-full max-w-sm rounded-2xl bg-white shadow-sm overflow-hidden">
           {/* Transaction Header */}
-          <div className="bg-[#1f2130] text-white p-6">
+          <div className="bg-[#1f2130] text-white p-4 sm:p-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">BAILOUT RELIEF</h2>
-              <span className="text-2xl font-bold">${formatMoney(reliefAmount)}</span>
+              <h2 className="text-lg sm:text-xl font-semibold">BAILOUT RELIEF</h2>
+              <span className="text-xl sm:text-2xl font-bold">${formatMoney(reliefAmount)}</span>
             </div>
           </div>
 
           {/* Merchant Contact Information */}
-          <div className="bg-gray-500 text-white px-6 py-3">
-            <h3 className="font-medium">Merchant Contact Information</h3>
+          <div className="bg-gray-500 text-white px-4 sm:px-6 py-3">
+            <h3 className="font-medium text-sm sm:text-base">Merchant Contact Information</h3>
           </div>
           
-          <div className="px-6 py-4 border-b border-gray-200">
-            <div className="flex items-start gap-3 mb-3">
-              <svg className="h-5 w-5 text-gray-600 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <div className="px-4 sm:px-6 py-4 border-b border-gray-200">
+            <div className="flex items-start gap-3">
+              <svg className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
-              <span className="text-gray-900 font-medium">10425 WOODBINE ST APT 17 LOS ANGELES CA 90034-3735 USA</span>
+              <span className="text-gray-900 font-medium text-sm sm:text-base leading-relaxed">10425 WOODBINE ST APT 17 LOS ANGELES CA 90034-3735 USA</span>
             </div>
           </div>
 
           {/* Additional Information */}
-          <div className="bg-gray-500 text-white px-6 py-3">
-            <h3 className="font-medium">Additional Information</h3>
+          <div className="bg-gray-500 text-white px-4 sm:px-6 py-3">
+            <h3 className="font-medium text-sm sm:text-base">Additional Information</h3>
           </div>
 
-          <div className="px-6 py-4 space-y-4">
-            <div className="flex justify-between items-center py-3">
-              <span className="text-gray-900 font-medium">Transaction Date</span>
-              <span className="text-gray-900 font-medium">{formatOffset(0)}</span>
+          <div className="px-4 sm:px-6 py-4 space-y-3">
+            <div className="flex justify-between items-center py-2">
+              <span className="text-gray-900 font-medium text-sm sm:text-base">Transaction Date</span>
+              <span className="text-gray-900 font-medium text-sm sm:text-base text-right">{formatOffset(0)}</span>
             </div>
             
-            <div className="flex justify-between items-center py-3">
-              <span className="text-gray-900 font-medium">Posted Date</span>
-              <span className="text-gray-900 font-medium">{formatOffset(0)}</span>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-gray-900 font-medium text-sm sm:text-base">Posted Date</span>
+              <span className="text-gray-900 font-medium text-sm sm:text-base text-right">{formatOffset(0)}</span>
             </div>
             
-            <div className="flex justify-between items-center py-3">
-              <span className="text-gray-900 font-medium">Purchase Method</span>
-              <span className="text-gray-900 font-medium">CREDIT ADJUSTMENT</span>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-gray-900 font-medium text-sm sm:text-base">Purchase Method</span>
+              <span className="text-gray-900 font-medium text-sm sm:text-base text-right">CREDIT ADJUSTMENT</span>
             </div>
             
-            <div className="flex justify-between items-start py-3">
-              <span className="text-gray-900 font-medium">Category</span>
-              <div className="text-gray-900 font-medium text-right leading-tight">
+            <div className="flex justify-between items-start py-2">
+              <span className="text-gray-900 font-medium text-sm sm:text-base">Category</span>
+              <div className="text-gray-900 font-medium text-right leading-tight text-sm sm:text-base max-w-[60%]">
                 <div>DEBT RELIEF AND</div>
                 <div>FINANCIAL ASSISTANCE</div>
               </div>
